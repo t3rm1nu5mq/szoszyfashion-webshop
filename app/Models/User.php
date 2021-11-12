@@ -59,6 +59,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    /**
+     * Get user's orders
+     */
     public function orders() {
         return $this->hasMany(Order::class, 'user_id', 'id');
     }

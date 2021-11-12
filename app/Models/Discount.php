@@ -1,17 +1,41 @@
 <?php
 
-namespace App\Models;
+    namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Discount extends Model
-{
-    use HasFactory;
-    use SoftDeletes;
+    /**
+     * This model contains the discounts data.
+     */
+    class Discount extends Model {
+        use HasFactory;
+        use SoftDeletes;
 
-    protected $fillable = ['name', 'title', 'description', 'type', 'value', 'from', 'to'];
+        /**
+         * The attributes that are mass assignable.
+         *
+         * @var string[]
+         */
+        protected $fillable = [
+            'name',        // discount's inner name
+            'title',       // discount's displayed name
+            'description', // discount's description
+            'type',        // discount's type
+            'value',       // discount's value
+            'from',        // discount's beginning date-time
+            'to'           // discount's ending date-time
+        ];
 
-    protected $dates = ['deleted_at'];
-}
+        /**
+         * The attributes that should be cast.
+         *
+         * @var string[]
+         */
+        protected $casts = [
+            'deleted_at' => 'datetime', // record's deletion date-time
+            'from'       => 'datetime', // discount's beginning date-time
+            'to'         => 'datetime'  // discount's ending date-time
+        ];
+    }

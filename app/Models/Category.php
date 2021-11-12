@@ -1,17 +1,35 @@
 <?php
 
-namespace App\Models;
+    namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
-{
-    use HasFactory;
-    use SoftDeletes;
+    /**
+     * This model contains the categories data.
+     */
+    class Category extends Model {
+        use HasFactory;
+        use SoftDeletes;
 
-    protected $fillable = ['name', 'image', 'is_active'];
+        /**
+         * The attributes that are mass assignable.
+         *
+         * @var string[]
+         */
+        protected $fillable = [
+            'name',     // category's name
+            'image',    // category's cover image
+            'is_active' // category is active
+        ];
 
-    protected $dates = ['deleted_at'];
-}
+        /**
+         * The attributes that should be cast.
+         *
+         * @var string[]
+         */
+        protected $casts = [
+            'deleted_at' => 'datetime' // record's deletion date-time
+        ];
+    }
