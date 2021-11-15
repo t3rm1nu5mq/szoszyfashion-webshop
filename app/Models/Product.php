@@ -16,7 +16,7 @@
 
         /**
          * The attributes that are mass assignable.
-         * 
+         *
          * @var string[]
          */
         protected $fillable = [
@@ -26,7 +26,7 @@
 
         /**
          * The attributes that should be cast.
-         * 
+         *
          * @var string[]
          */
         protected $casts = [
