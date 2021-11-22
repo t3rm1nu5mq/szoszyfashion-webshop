@@ -4,8 +4,14 @@
             <slot name="logo" />
         </div>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg  card-left-border">
             <slot />
         </div>
     </div>
 </template>
+
+<style>
+    .card-left-border {
+        border-left: 10px solid rgba(104, 88, 88, 255);
+    }
+</style>
