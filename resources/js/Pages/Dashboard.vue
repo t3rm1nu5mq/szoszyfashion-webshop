@@ -1,8 +1,8 @@
 <template>
-    <app-layout title="Dashboard">
+    <app-layout title="Irányítópult">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="color: #FEFEFE">
+                Irányítópult
             </h2>
         </template>
 

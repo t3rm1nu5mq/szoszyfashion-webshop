@@ -4,12 +4,13 @@
 
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Relations\HasOne;
     use Illuminate\Database\Eloquent\SoftDeletes;
 
     /**
-     * This model contains the categories data.
+     * This model contains the basket's items.
      */
-    class Category extends Model {
+    class BasketItem extends Model {
         use HasFactory;
         use SoftDeletes;
 
@@ -19,17 +20,17 @@
          * @var string[]
          */
         protected $fillable = [
-            'name',     // category's name
-            'image',    // category's cover image
-            'is_active' // category is active
+            'basket_id',
+            'product_id',
+            'count'
         ];
 
-        /*
-         * The attributes that should be cast.
+        /**
+         * Get products from basket.
          *
-         * @var string[]
+         * @return HasOne
          */
-        protected $casts = [
-            'deleted_at' => 'datetime' // record's deletion date-time
-        ];
+        public function product(): HasOne {
+            return $this->hasOne(Product::class, 'id', 'product_id');
+        }
     }
